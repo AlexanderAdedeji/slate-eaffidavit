@@ -1,4 +1,5 @@
 import logging
+import uvicorn
 from bson import ObjectId
 from fastapi import FastAPI, HTTPException
 from database import template_collection, document_collection
@@ -175,3 +176,7 @@ async def create_document(
 
     document = document_individual_serialiser(document)
     return document
+
+
+if __name__=="__main__":
+    uvicorn.run("main:app",host="0.0.0.0",port=4000,reload=True)
