@@ -37,16 +37,16 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
-@app.on_event("startup")
-async def startup_db_client():
-    app.mongodb_client = AsyncIOMotorClient(url)
-    app.mongodb = app.mongodb_client.get_database()
+# @app.on_event("startup")
+# async def startup_db_client():
+#     app.mongodb_client = AsyncIOMotorClient(url)
+#     app.mongodb = app.mongodb_client.get_database()
 
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    print("bye world")
-    app.mongodb_client.close()
+# @app.on_event("shutdown")
+# async def shutdown_db_client():
+#     print("bye world")
+#     app.mongodb_client.close()
 
 
 @app.get("/")
